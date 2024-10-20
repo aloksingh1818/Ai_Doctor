@@ -1,0 +1,149 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Contact - Alok Kumar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            overflow-x: hidden;
+            background-color: #f0f8ff; /* Light blue background for contrast */
+            margin: 0;
+            height: 100vh; /* Full viewport height */
+            position: relative;
+        }
+        .icon {
+            position: absolute;
+            width: 100px; /* Increased icon size */
+            height: 100px; /* Increased icon size */
+            opacity: 0.9;
+            transition: transform 0.3s;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 0;
+            position: relative;
+            z-index: 2;
+        }
+        .contact-card {
+            background-color: #ffffff;
+            max-width: 600px;
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin: 0 auto; /* Centers the card horizontally */
+            margin-top: 20px; /* Reduced top space */
+        }
+        .developer-img {
+            border-radius: 50%;
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .section-title {
+            color: #007BFF;
+            font-weight: bold;
+            margin-top: 30px;
+        }
+        .social-links a {
+            display: inline-block;
+            margin-right: 15px;
+            color: #007BFF;
+            font-size: 18px;
+            text-decoration: none;
+        }
+        .social-links a:hover {
+            text-decoration: underline;
+        }
+        .btn-home {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .btn-home:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+         <h1 class="text-center mt-5 mb-4 display-4">Contact Us</h1> <!-- Big heading added here -->
+        <div class="contact-card">
+            <img src="{{ url_for('static', filename='alok.jpeg') }}" alt="Alok Kumar" class="developer-img">
+            <h3>Alok Kumar</h3>
+            <p>I am a passionate developer specializing in data science, machine learning, and full-stack development. I love to connect with like-minded professionals and collaborate on challenging projects.</p>
+            <p>Feel free to reach out through any of the platforms below. Whether it’s for a potential project collaboration, a technical discussion, or professional networking, I’m always open to new opportunities.</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/alok-kumar-119481218" target="_blank">LinkedIn</a>
+                <a href="https://github.com/aloksingh1818" target="_blank">GitHub</a>
+                <a href="https://leetcode.com/alok-kumar" target="_blank">LeetCode</a>
+                <a href="https://www.geeksforgeeks.org/user/aloksinghh18/" target="_blank">GeeksforGeeks</a>
+                <a href="mailto:alok85820018@gmail.com">Email</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- Social Media Icons -->
+    <img src="https://img.icons8.com/color/100/whatsapp.png" class="icon" alt="WhatsApp">
+    <img src="https://img.icons8.com/color/100/instagram-new.png" class="icon" alt="Instagram">
+    <img src="https://img.icons8.com/color/100/facebook.png" class="icon" alt="Facebook">
+    <img src="https://img.icons8.com/color/100/twitter.png" class="icon" alt="Twitter">
+    <img src="https://img.icons8.com/color/100/gmail.png" class="icon" alt="Email">
+    <img src="https://img.icons8.com/color/100/github.png" class="icon" alt="GitHub">
+    <img src="https://img.icons8.com/color/100/linkedin.png" class="icon" alt="LinkedIn">
+    <img src="https://img.icons8.com/color/100/youtube-play.png" class="icon" alt="YouTube">
+    <img src="https://img.icons8.com/color/100/telegram-app.png" class="icon" alt="Telegram">
+    <img src="https://img.icons8.com/color/100/tiktok.png" class="icon" alt="TikTok">
+    <img src="https://img.icons8.com/color/100/pinterest.png" class="icon" alt="Pinterest">
+    <img src="https://img.icons8.com/color/100/snapchat.png" class="icon" alt="Snapchat">
+    <img src="https://img.icons8.com/color/100/reddit.png" class="icon" alt="Reddit">
+    <img src="https://img.icons8.com/color/100/slack-new.png" class="icon" alt="Slack">
+    <img src="https://img.icons8.com/color/100/discord.png" class="icon" alt="Discord">
+    <img src="https://img.icons8.com/color/100/skype.png" class="icon" alt="Skype">
+    <img src="https://img.icons8.com/color/100/tumblr.png" class="icon" alt="Tumblr">
+    <img src="https://img.icons8.com/color/100/wechat.png" class="icon" alt="WeChat">
+
+    <!-- Include Anime.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script>
+        // Animate the icons to move randomly within the full viewport
+        document.querySelectorAll('.icon').forEach(icon => {
+            // Set random starting positions
+            icon.style.left = `${anime.random(0, window.innerWidth - 100)}px`;
+            icon.style.top = `${anime.random(0, window.innerHeight - 100)}px`;
+
+            function animateIcon() {
+                anime({
+                    targets: icon,
+                    translateX: () => anime.random(-window.innerWidth / 2, window.innerWidth / 2),
+                    translateY: () => anime.random(-window.innerHeight / 2, window.innerHeight / 2),
+                    duration: 4000,
+                    easing: 'easeInOutQuad',
+                    complete: animateIcon, // Repeat animation
+                });
+            }
+            animateIcon();
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  </body>
+</html>

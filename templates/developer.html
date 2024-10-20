@@ -1,0 +1,270 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Developer Blog - Alok Kumar</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            color: #333;
+            overflow-x: hidden;
+            background-color: #f0f0f5; /* Light grey background for contrast */
+        }
+        #particles-js {
+            position: absolute;
+            width: 100%;
+            height: 80%;
+            z-index: -1;
+            background: linear-gradient(180deg, #282c34, #3a3f4b); /* Darker gradient background */
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 0px;
+
+            position: relative;
+            z-index: 2;
+        }
+        .developer-card {
+            background-color: #ffffff;
+            max-width: 600px;
+            width: 100%;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            text-align: center;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            margin: 0 auto; /* Centers the card horizontally */
+            margin-top: 0px; /* Adds some space from the top */
+        }
+        .developer-img {
+            border-radius: 50%;
+            width: 200px;
+            height: 200px;
+            object-fit: cover;
+            margin-bottom: 10px;
+        }
+        .section-title {
+            color: #007BFF;
+            font-weight: bold;
+            margin-top: 30px;
+        }
+        .project-card {
+            background-color: #ffffff;
+            border-radius: 8px;
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+        .social-links a {
+            display: inline-block;
+            margin-right: 15px;
+            color: #007BFF;
+            font-size: 18px;
+            text-decoration: none;
+        }
+        .btn-read-more {
+            background-color: #007BFF;
+            color: white;
+            font-size: 14px;
+            padding: 8px 15px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+            font-weight: bold;
+        }
+        .btn-read-more:hover {
+            background-color: #0056b3;
+            transform: scale(1.05);
+        }
+        .btn-home {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+            font-weight: bold;
+            margin-top: 20px;
+        }
+        .btn-home:hover {
+            background-color: #218838;
+            transform: scale(1.05);
+        }
+    </style>
+  </head>
+  <body>
+    <div id="particles-js"></div> <!-- Particle Animation Background -->
+
+    <div class="container">
+        <h2 class="text-center mb-4">Developer Blog - Alok Kumar</h2>
+        <div class="developer-card">
+            <img src="{{ url_for('static', filename='alok.jpeg') }}" alt="Alok Kumar" class="developer-img">
+            <h3>Alok Kumar</h3>
+            <p>B.Tech in Computer Science (Data Science) | Developer | Machine Learning Enthusiast</p>
+            <p>Technical Member at Data Science Club, HIT | Subject Matter Expert at Chegg India</p>
+            <div class="social-links">
+                <a href="https://www.linkedin.com/in/alok-kumar-119481218" target="_blank">LinkedIn</a>
+                <a href="https://github.com/aloksingh1818" target="_blank">GitHub</a>
+                <a href="https://leetcode.com/alok-kumar" target="_blank">LeetCode</a>
+                <a href="https://www.geeksforgeeks.org/user/aloksinghh18/" target="_blank">GeeksforGeeks</a>
+
+            </div>
+        </div>
+
+        <h4 class="section-title">About Me</h4>
+        <p>I am Alok Kumar, a passionate developer currently pursuing my Bachelor of Technology in Computer Science (Data Science) at Haldia Institute of Technology. With a CGPA of 8.31/10, I have developed expertise in data science, machine learning, and web development. As a Subject Matter Expert at Chegg India, I have solved over 5000 questions with an accuracy rate of 85% or higher, helping students globally understand complex concepts in computer science and calculus.</p>
+
+        <h4 class="section-title">Technical Skills</h4>
+        <ul>
+            <li><strong>Languages:</strong> C++, Python, DSA in C++</li>
+            <li><strong>Data Science:</strong> Machine Learning, Deep Learning, TensorFlow, PyTorch, scikit-learn</li>
+            <li><strong>Web Development:</strong> HTML, CSS, JavaScript, Node.js, Tailwind CSS</li>
+            <li><strong>Databases:</strong> SQL, DBMS</li>
+            <li><strong>Tools:</strong> Numpy, Pandas, Matplotlib, Microsoft Excel, Power BI</li>
+        </ul>
+
+        <h4 class="section-title">Projects</h4>
+        <div class="project-card">
+            <h5>Your Mini Doctor - Personalized Medical Recommendation System</h5>
+            <p>Developed an advanced medical recommendation system that uses machine learning to predict diseases based on user symptoms and provides personalized recommendations. The project integrates a user-friendly interface built with Flask. <a href="https://github.com/aloksingh1818/Your_mini_Doctor" class="btn-read-more">View Project</a></p>
+        </div>
+        <div class="project-card">
+            <h5>Disease Prediction - Liver Cirrhosis Detection</h5>
+            <p>Developed a predictive model using Python and machine learning to detect liver cirrhosis. The model analyzes patient data such as liver function tests and imaging studies for early detection and intervention. <a href="https://github.com/aloksingh1818/Disease-Prediction" class="btn-read-more">View Project</a></p>
+        </div>
+        <div class="project-card">
+            <h5>ShoppingKaro - E-Commerce Web Application</h5>
+            <p>Built an e-commerce platform using Node.js, HTML, CSS, and JavaScript. The application includes features like product listings, shopping cart, and user authentication, providing a smooth and secure shopping experience. <a href="https://github.com/aloksingh1818/ShoppingKaro" class="btn-read-more">View Project</a></p>
+        </div>
+
+        <h4 class="section-title">Certifications</h4>
+        <ul>
+            <li>Python Programming Masterclass - <a href="https://www.udemy.com/certificate/UC-b2a071d1-0a9b-49aa-ae6a-2f90de73cf7c/" target="_blank">View Certificate</a></li>
+            <li>Machine Learning A-Z: AI Python & R + ChatGPT - <a href="https://www.udemy.com/certificate/UC-b2a071d1-0a9b-49aa-ae6a-2f90de73cf7c/" target="_blank">View Certificate</a></li>
+        </ul>
+
+        <h4 class="section-title">Contact</h4>
+        <p>If you'd like to get in touch or collaborate, feel free to connect on LinkedIn, GitHub, or LeetCode using the links above. You can also email me at <a href="mailto:alok85820018@gmail.com">alok85820018@gmail.com</a>.</p>
+
+        <div class="text-center mt-5">
+            <a href="index.html" class="btn-home">Go to Home Page</a>
+        </div>
+    </div>
+
+    <!-- Include Particles.js library -->
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script>
+        particlesJS('particles-js', {
+            "particles": {
+                "number": {
+                    "value": 80,
+                    "density": {
+                        "enable": true,
+                        "value_area": 800
+                    }
+                },
+                "color": {
+                    "value": "#ffffff"
+                },
+                "shape": {
+                    "type": "circle",
+                    "stroke": {
+                        "width": 0,
+                        "color": "#000000"
+                    }
+                },
+                "opacity": {
+                    "value": 0.5,
+                    "random": false,
+                    "anim": {
+                        "enable": false,
+                        "speed": 1,
+                        "opacity_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "size": {
+                    "value": 3,
+                    "random": true,
+                    "anim": {
+                        "enable": false,
+                        "speed": 40,
+                        "size_min": 0.1,
+                        "sync": false
+                    }
+                },
+                "line_linked": {
+                    "enable": true,
+                    "distance": 150,
+                    "color": "#ffffff",
+                    "opacity": 0.4,
+                    "width": 1
+                },
+                "move": {
+                    "enable": true,
+                    "speed": 3,
+                    "direction": "none",
+                    "random": false,
+                    "straight": false,
+                    "out_mode": "out",
+                    "bounce": false,
+                    "attract": {
+                        "enable": false,
+                        "rotateX": 600,
+                        "rotateY": 1200
+                    }
+                }
+            },
+            "interactivity": {
+                "detect_on": "canvas",
+                "events": {
+                    "onhover": {
+                        "enable": true,
+                        "mode": "repulse"
+                    },
+                    "onclick": {
+                        "enable": true,
+                        "mode": "push"
+                    },
+                    "resize": true
+                },
+                "modes": {
+                    "grab": {
+                        "distance": 400,
+                        "line_linked": {
+                            "opacity": 1
+                        }
+                    },
+                    "bubble": {
+                        "distance": 400,
+                        "size": 40,
+                        "duration": 2,
+                        "opacity": 8,
+                        "speed": 3
+                    },
+                    "repulse": {
+                        "distance": 200,
+                        "duration": 0.4
+                    },
+                    "push": {
+                        "particles_nb": 4
+                    },
+                    "remove": {
+                        "particles_nb": 2
+                    }
+                }
+            },
+            "retina_detect": true
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  </body>
+</html>

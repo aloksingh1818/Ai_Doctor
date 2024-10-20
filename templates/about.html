@@ -1,0 +1,128 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>About Us - Your Mini Doctor</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+    <style>
+        body {
+            background-color: #f0f8ff; /* Light blue background for a clean, fresh look */
+            font-family: Arial, sans-serif;
+            color: #333;
+            overflow-x: hidden;
+            height: 100vh; /* Full viewport height */
+            position: relative;
+        }
+        .icon {
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            opacity: 0.9;
+            transition: transform 0.3s;
+        }
+        .container {
+            background-color: #ffffff; /* White background for the content area */
+            padding: 30px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            max-width: 800px;
+            margin: 0 auto;
+            position: relative;
+            z-index: 2;
+        }
+        h3 {
+            color: #007BFF; /* Blue color for section headings */
+            margin-bottom: 20px;
+            font-weight: bold;
+        }
+        p {
+            margin-bottom: 20px;
+            line-height: 1.6;
+        }
+        .highlight {
+            font-weight: bold;
+            color: #007BFF;
+        }
+        .btn-home {
+            display: inline-block;
+            background-color: #28a745;
+            color: white;
+            font-size: 18px;
+            padding: 10px 20px;
+            border-radius: 5px;
+            text-decoration: none;
+            transition: background-color 0.3s, transform 0.3s;
+            font-weight: bold;
+        }
+        .btn-home:hover {
+            background-color: #218838; /* Darker green on hover */
+            transform: scale(1.05); /* Slightly enlarges the button on hover */
+        }
+    </style>
+  </head>
+  <body>
+    <div class="container my-4 mt-4">
+      <h3>About Us</h3>
+      <p>Welcome to <span class="highlight">Your Mini Doctor</span>, an advanced platform where technology and healthcare come together to empower individuals in managing their well-being with ease and precision.</p>
+
+      <h3>Our Vision</h3>
+      <p>At <span class="highlight">Your Mini Doctor</span>, we envision a future where personalized healthcare is accessible to everyone. Our goal is to bridge the gap between users and healthcare information through intelligent technology that simplifies the process of understanding and managing health.</p>
+
+      <h3>Our Team</h3>
+      <p>We are a dedicated group of healthcare experts, data scientists, and software developers working together to revolutionize digital health solutions. Our collective experience and passion drive us to create a platform that not only predicts health conditions accurately but also ensures a user-centric experience at every step.</p>
+
+      <h3>Privacy and Security</h3>
+      <p>Your trust and privacy are paramount. At <span class="highlight">Your Mini Doctor</span>, we implement robust security measures to protect your personal health information, adhering to industry standards and best practices. We are committed to safeguarding your data, ensuring that your health journey remains confidential and secure.</p>
+
+      <a href="index.html" class="btn-home mt-4">Go to Home Page</a>
+    </div>
+
+    <!-- Medical and Technical Icons -->
+    <img src="https://img.icons8.com/color/100/stethoscope.png" class="icon" alt="Stethoscope">
+    <img src="https://img.icons8.com/color/100/medical-doctor.png" class="icon" alt="Doctor">
+    <img src="https://img.icons8.com/color/100/microscope.png" class="icon" alt="Microscope">
+    <img src="https://img.icons8.com/color/100/computer.png" class="icon" alt="Computer">
+    <img src="https://img.icons8.com/color/100/artificial-intelligence.png" class="icon" alt="AI">
+    <img src="https://img.icons8.com/color/100/brain.png" class="icon" alt="Brain">
+    <img src="https://img.icons8.com/color/100/data-configuration.png" class="icon" alt="Data Science">
+    <img src="https://img.icons8.com/color/100/cloud-storage.png" class="icon" alt="Cloud Computing">
+    <img src="https://img.icons8.com/color/100/database.png" class="icon" alt="Database">
+    <img src="https://img.icons8.com/color/100/python.png" class="icon" alt="Python">
+    <img src="https://img.icons8.com/color/100/react-native.png" class="icon" alt="React">
+    <img src="https://img.icons8.com/color/100/source-code.png" class="icon" alt="Coding">
+    <img src="https://img.icons8.com/color/100/robot.png" class="icon" alt="Robot">
+    <img src="https://img.icons8.com/color/100/flask.png" class="icon" alt="Flask">
+    <img src="https://img.icons8.com/color/100/tensorflow.png" class="icon" alt="TensorFlow">
+    <img src="https://img.icons8.com/color/100/javascript.png" class="icon" alt="JavaScript">
+    <img src="https://img.icons8.com/color/100/html-5.png" class="icon" alt="HTML5">
+    <img src="https://img.icons8.com/color/100/css3.png" class="icon" alt="CSS3">
+    <img src="https://img.icons8.com/color/100/git.png" class="icon" alt="Git">
+    <img src="https://img.icons8.com/color/100/java-coffee-cup-logo.png" class="icon" alt="Java">
+    <img src="https://img.icons8.com/color/100/c-plus-plus-logo.png" class="icon" alt="C++">
+
+    <!-- Include Anime.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script>
+        // Animate the icons to move randomly within the full viewport
+        document.querySelectorAll('.icon').forEach(icon => {
+            // Set random starting positions
+            icon.style.left = `${anime.random(0, window.innerWidth - 100)}px`;
+            icon.style.top = `${anime.random(0, window.innerHeight - 100)}px`;
+
+            function animateIcon() {
+                anime({
+                    targets: icon,
+                    translateX: () => anime.random(-window.innerWidth / 2, window.innerWidth / 2),
+                    translateY: () => anime.random(-window.innerHeight / 2, window.innerHeight / 2),
+                    duration: 5000,
+                    easing: 'easeInOutQuad',
+                    complete: animateIcon, // Repeat animation
+                });
+            }
+            animateIcon();
+        });
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+  </body>
+</html>

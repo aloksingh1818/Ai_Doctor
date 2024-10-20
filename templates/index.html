@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Health Care Center</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-4bw+/aepP/YC94hEpVNVgiZdgIC5+VKNBQNGCHeKRQN+PtmoHDEXuppvnDJzQIu9" crossorigin="anonymous">
+  </head>
+
+  <style>
+
+        .logo {
+            width: 50px;
+            height: 50px;
+            color: Black;
+            margin-top: 0;
+            margin-left: 2px;
+        }
+
+        .myimg {
+            width: 50px;
+            height: 50px;
+            border: 2px solid black;
+            border-radius: 25px;
+        }
+
+
+
+
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+<!-- Navbar -->
+<nav class="navbar navbar-expand-lg navbar-light" style="background-color: lightblue;">
+    <div class="container-fluid">
+        <!-- Logo at the top-left corner -->
+        <div class="logo">
+            <img class="myimg" src="{{ url_for('static', filename='Screenshot (8).png') }}" alt="">
+        </div>
+
+        <a class="navbar-brand" href="#">YOUR MINI DOCTOR</a>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <a class="nav-link active custom-link" aria-current="page" href="#">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link custom-link" href="/about">About</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link custom-link" href="/contact">Contact</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link custom-link" href="/developer">Developer</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link custom-link" href="/blog">Blog</a>
+                </li>
+            </ul>
+            <form class="d-flex" role="search">
+                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+                <button class="btn btn-outline-success" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+</nav>
+
+<!-- CSS Styles -->
+<style>
+    /* Style for the navbar links */
+    .custom-link {
+        color: black !important;
+        font-weight: bold;
+        transition: transform 0.3s, color 0.3s;
+    }
+
+    /* Hover effect for navbar links */
+    .custom-link:hover {
+        color: #007bff !important; /* Changes to a blue shade on hover */
+        transform: translateY(-2px); /* Slight upward movement */
+        text-decoration: none; /* Removes underline on hover */
+    }
+</style>
+
+
+
+
+
+
+<!-- main form of page -->
+<h1 class="mt-4 my-4 text-center text-green">Your Mini Doctor</h1>
+<div class="container my-4 mt-4" style="background: #172079; color: white; border-radius: 15px; padding: 40px;">
+    <form action="/predict" method="post">
+        <div class="form-group">
+            <label for="symptoms">Select Symptoms:</label>
+            <input type="text" class="form-control", id="symptoms" name="symptoms" placeholder="type systems such as itching, sleeping, aching etc">
+
+        </div>
+        <br>
+        <button type="button" id="startSpeechRecognition" class="btn btn-primary" style="margin-left:3px;border:1px solid white; border-radius:20px;">
+            Start Speech Recognition
+        </button>
+        <br>
+
+        <!-- Display the transcribed text here -->
+        <div name="mysysms" id="transcription"></div>
+
+        {% if message %}
+        <p>{{ message }}</p>
+        {% endif %}
+        <br>
+
+       <button type="submit" class="btn btn-danger btn-lg predict-button" style="width: 100%; padding: 14px; margin-bottom: 5px; background-color: #0077b6; border-color: #FF6347; color: white; transition: background-color 0.3s, transform 0.1s;">
+    Predict
+</button>
+
+<style>
+    .predict-button:hover {
+        background-color: #FF8265; /* Slightly lighter shade of the button color */
+        border-color: #FF8265; /* Matching border color */
+        transform: translateY(-2px); /* Moves the button up slightly for a hover effect */
+    }
+
+    .predict-button:active {
+        transform: translateY(2px); /* Moves the button down slightly when clicked */
+        background-color: #FF4A36; /* Darker shade to indicate it's being pressed */
+        border-color: #FF4A36; /* Matching border color */
+    }
+</style>
+
+    </form>
+</div>
+
+
+
+
+
+
+
+
+{% if predicted_disease %}
+
+<!-- Results -->
+<h1 class="text-center my-4 mt-4">Your AI Doctor Sugession</h1>
+<div class="container">
+
+  <div class="result-container">
+    <!-- Buttons to toggle display -->
+    <button class="toggle-button" data-bs-toggle="modal" data-bs-target="#diseaseModal" style="padding:4px; margin: 5px 40px 5px 0; font-size:20px; font-weight:bold; width:140px; border-radius:5px; background:#007BFF; color:white; transition: background-color 0.3s, transform 0.1s;">Disease</button>
+    <button class="toggle-button" data-bs-toggle="modal" data-bs-target="#descriptionModal" style="padding:4px; margin: 5px 40px 5px 0; font-size:20px; font-weight:bold; width:140px; border-radius:5px; background:#28A745; color:white; transition: background-color 0.3s, transform 0.1s;">Description</button>
+    <button class="toggle-button" data-bs-toggle="modal" data-bs-target="#precautionModal" style="padding:4px; margin: 5px 40px 5px 0; font-size:20px; font-weight:bold; width:140px; border-radius:5px; background:#17A2B8; color:white; transition: background-color 0.3s, transform 0.1s;">Precaution</button>
+    <button class="toggle-button" data-bs-toggle="modal" data-bs-target="#medicationsModal" style="padding:4px; margin: 5px 40px 5px 0; font-size:20px; font-weight:bold; width:140px; border-radius:5px; background:#FFC107; color:white; transition: background-color 0.3s, transform 0.1s;">Medications</button>
+    <button class="toggle-button" data-bs-toggle="modal" data-bs-target="#workoutsModal" style="padding:4px; margin: 5px 40px 5px 0; font-size:20px; font-weight:bold; width:140px; border-radius:5px; background:#6610F2; color:white; transition: background-color 0.3s, transform 0.1s;">Workouts</button>
+    <button class="toggle-button" data-bs-toggle="modal" data-bs-target="#dietsModal" style="padding:4px; margin: 5px 40px 5px 0; font-size:20px; font-weight:bold; width:140px; border-radius:5px; background:#E83E8C; color:white; transition: background-color 0.3s, transform 0.1s;">Diets</button>
+</div>
+
+<style>
+    .toggle-button:hover {
+        filter: brightness(1.2); /* Makes the button 20% brighter on hover */
+    }
+
+    .toggle-button:active {
+        transform: translateY(2px); /* Moves the button down slightly when clicked */
+    }
+</style>
+
+
+
+</div>
+
+{% endif %}
+
+<!-- Disease Modal -->
+    <div class="modal fade" id="diseaseModal" tabindex="-1" aria-labelledby="diseaseModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #020606; color:white;"> <!-- Set header background color inline -->
+                    <h5 class="modal-title" id="diseaseModalLabel">Predicted Disease</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body" style="background-color: #modal-body-color;"> <!-- Set modal body background color inline -->
+                    <p>{{ predicted_disease }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <!-- Description Modal -->
+    <div class="modal fade" id="descriptionModal" tabindex="-1" aria-labelledby="descriptionModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #020606; color:white;">
+                    <h5 class="modal-title" id="descriptionModalLabel">Description</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <p>{{ dis_des }}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+<!-- Precaution Modal -->
+    <div class="modal fade" id="precautionModal" tabindex="-1" aria-labelledby="precautionModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #020606; color:white;">
+                    <h5 class="modal-title" id="precautionModalLabel">Precaution</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        {% for i in my_precautions %}
+                            <li>{{ i }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+    <!-- Medications Modal -->
+    <div class="modal fade" id="medicationsModal" tabindex="-1" aria-labelledby="medicationsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #020606; color:white;">
+                    <h5 class="modal-title" id="medicationsModalLabel">Medications</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        {% for i in medications %}
+                            <li>{{ i }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Workouts Modal -->
+    <div class="modal fade" id="workoutsModal" tabindex="-1" aria-labelledby="workoutsModalLabel" aria-hidden="true">
+        <div class="modal-dialog" >
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #020606; color:white;">
+                    <h5 class="modal-title" id="workoutsModalLabel">Workouts</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        {% for i in workout %}
+                            <li>{{ i }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Diets Modal -->
+    <div class="modal fade" id="dietsModal" tabindex="-1" aria-labelledby="dietsModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+                <div class="modal-header" style="background-color: #020606; color:white;">
+                    <h5 class="modal-title" id="dietsModalLabel">Diets</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                </div>
+                <div class="modal-body">
+                    <ul>
+                        {% for i in my_diet %}
+                            <li>{{ i }}</li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+
+        <script>
+    const startSpeechRecognitionButton = document.getElementById('startSpeechRecognition');
+    const transcriptionDiv = document.getElementById('transcription');
+
+    startSpeechRecognitionButton.addEventListener('click', startSpeechRecognition);
+
+    function startSpeechRecognition() {
+        const recognition = new webkitSpeechRecognition(); // Use webkitSpeechRecognition for compatibility
+
+        recognition.lang = 'en-US'; // Set the language for recognition
+
+        recognition.onresult = function (event) {
+            const result = event.results[0][0].transcript;
+            transcriptionDiv.textContent = result;
+        };
+
+        recognition.onend = function () {
+            console.log('Speech recognition ended.');
+        };
+
+        recognition.start();
+    }
+</script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-HwwvtgBNo3bZJJLYd8oVXjrBZt8cqVSpeBNS5n7C8IVInixGAoxmnlMuBnhbgrkm" crossorigin="anonymous"></script>
+
+
+
+</body>
+
+</html>
+
+
+
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Medical Icons Border Animation</title>
+    <style>
+        body {
+            background-color: #f0f8ff; /* Light blue background */
+            overflow: hidden;
+            height: 100vh; /* Full viewport height */
+            margin: 0;
+            position: relative;
+        }
+        .icon {
+            position: absolute;
+            width: 50px; /* Smaller size for the icons */
+            height: 50px;
+            opacity: 0.9;
+        }
+    </style>
+  </head>
+  <body>
+    <!-- Medical Icons -->
+    <img src="https://img.icons8.com/color/50/stethoscope.png" class="icon" alt="Stethoscope">
+    <img src="https://img.icons8.com/color/50/medical-doctor.png" class="icon" alt="Doctor">
+    <img src="https://img.icons8.com/color/50/microscope.png" class="icon" alt="Microscope">
+    <img src="https://img.icons8.com/color/50/heart-with-pulse.png" class="icon" alt="Heart with Pulse"> <!-- Replaced Heart Icon -->
+    <img src="https://img.icons8.com/color/50/hospital-3.png" class="icon" alt="Hospital"> <!-- Replaced with Hospital Icon -->
+    <img src="https://img.icons8.com/color/50/pill.png" class="icon" alt="Pill">
+    <img src="https://img.icons8.com/color/50/ambulance.png" class="icon" alt="Ambulance">
+    <img src="https://img.icons8.com/color/50/hospital-room.png" class="icon" alt="Hospital Room">
+    <img src="https://img.icons8.com/color/50/syringe.png" class="icon" alt="Syringe">
+    <img src="https://img.icons8.com/color/50/hospital.png" class="icon" alt="Hospital">
+
+    <!-- Include Anime.js library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/animejs/3.2.1/anime.min.js"></script>
+    <script>
+        // Animate the icons to move only along the borders of the viewport
+        document.querySelectorAll('.icon').forEach(icon => {
+            // Set random starting positions along the borders
+            const side = anime.random(1, 4); // 1: Top, 2: Right, 3: Bottom, 4: Left
+            switch (side) {
+                case 1: // Top border
+                    icon.style.left = `${anime.random(0, window.innerWidth - 50)}px`;
+                    icon.style.top = '0px';
+                    break;
+                case 2: // Right border
+                    icon.style.left = `${window.innerWidth - 50}px`;
+                    icon.style.top = `${anime.random(0, window.innerHeight - 50)}px`;
+                    break;
+                case 3: // Bottom border
+                    icon.style.left = `${anime.random(0, window.innerWidth - 50)}px`;
+                    icon.style.top = `${window.innerHeight - 50}px`;
+                    break;
+                case 4: // Left border
+                    icon.style.left = '0px';
+                    icon.style.top = `${anime.random(0, window.innerHeight - 50)}px`;
+                    break;
+            }
+
+            function animateIcon() {
+                anime({
+                    targets: icon,
+                    translateX: () => {
+                        // Keep the icon within the left and right borders
+                        return (side === 1 || side === 3) ? anime.random(-window.innerWidth, window.innerWidth) : 0;
+                    },
+                    translateY: () => {
+                        // Keep the icon within the top and bottom borders
+                        return (side === 2 || side === 4) ? anime.random(-window.innerHeight, window.innerHeight) : 0;
+                    },
+                    duration: 15000, // Slow movement (15 seconds)
+                    easing: 'easeInOutQuad',
+                    direction: 'alternate',
+                    complete: animateIcon, // Repeat animation
+                });
+            }
+            animateIcon();
+        });
+    </script>
+  </body>
+</html>
