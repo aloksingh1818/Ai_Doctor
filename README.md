@@ -2,6 +2,8 @@
 
 **YOUR MINI DOCTOR** is an advanced personalized medical recommendation system powered by cutting-edge machine learning technology. This platform is designed to empower users by providing accurate health insights and personalized medical recommendations based on user-provided symptoms.
 
+### [Live Project Link](https://ai-doctor-1-c1z5.onrender.com/predict)
+
 ## Table of Contents
 
 - [Overview](#overview)
@@ -33,9 +35,8 @@
 
 - **Frontend:** HTML, CSS, JavaScript
 - **Backend:** Flask (Python)
-- **Machine Learning Models:** Scikit-learn, TensorFlow
-- **Database:** SQLite / PostgreSQL (depending on deployment)
-- **Deployment:** Docker / Heroku (or your preferred cloud service)
+- **Machine Learning Models:** Scikit-learn, TensorFlow, Pandas, NumPy
+- **Deployment:** Render
 
 ## Installation
 
